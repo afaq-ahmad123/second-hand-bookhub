@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% load static %}
+<script type="text/javascript" src="{% static 'js/detail.js'%}"></script>
+<script type="text/javascript">
+
+</script>
+{% block content %}
+
+<body>
+	<header id="header"><!--header-->
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+                {% include 'messages.html' %}
+				<div class="row">
+					<div class="col-md-4 clearfix">
+						<div class="logo pull-left">
+							<a href="index.html"><img src="/media/images/home/logo.png" alt="" width="150" height="100" /></a>
+						</div>
+
+					</div>
+					<div class="col-md-8 clearfix">
+						<div class="shop-menu clearfix pull-right">
+							<ul class="nav navbar-nav">
+<!--								<li><a href="{% url 'home-url' %}"><i class="fa fa-home"></i> Home</a></li>-->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header><!--/header-middle-->
+			<!--header-bottom
+			<div class="header-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="sale.html">Sell Book</a></li>
+								<li><a href="exchange.html">Exchange Book</a></li>
+								<li><a href="index.html">Buy a Book</a></li>
+								<li><a href="cart.html.html">View User Adds</a></li>
+								<li><a href="contact-us.html">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="search_box pull-right">
+							<input type="text" placeholder="Search"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>/header-bottom-->
+
+	<!--/header-->
+	
+	<section id="form"><!--form-->
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="login-form"><!--login form-->
+						<h2>Login to your account</h2>
+						<form action="{% url 'login_user' %}" method="Post" onsubmit="loginValidate()">
+							{% csrf_token %}
+							<!--<input type="email" placeholder="Email" id="id_email"/>
+							<input type="password" placeholder="Password" id="id_password"/>
+							<span>
+								<input type="checkbox" class="checkbox"> 
+								Keep me signed in
+							</span>
+							<button type="submit" class="btn btn-default" onclick="loginValidate()">Login</button>-->
+                   			<div class="form-group loginForm" id="id_email">
+                       			{{ loginForm.email }}
+                       			{{ loginForm.email.errors }}
+                   			</div>
+                   			<div class="form-group loginForm" id="id_password">
+                    		    {{ loginForm.password }}
+								{{ loginForm.password.errors }}
+                   			</div>
+                   			<div class="col-md-1/10" >
+    		                     <button class="btn my-2 btn-default my-sm-0" id="loginButton" type="submit" > Login </button>
+							</div>
+						</form>
+					</div><!--/login form-->
+				</div>
+				<div class="col-sm-1">
+					<h2 class="or">OR</h2>
+				</div>
+				<div class="col-sm-4">
+					<div class="signup-form"><!--sign up form-->
+						<h2>New User Signup!</h2>
+						<form action="{% url 'register_user' %}" method="Post">
+							{% csrf_token %}
+							{% include 'messages.html' %}
+							<div class="form-group" >
+                       			{{ form.name }}
+                       			{{ form.name.errors }}
+                   			</div>
+							<div class="form-group" >
+                       			{{ form.email }}
+                       			{{ form.email.errors }}
+                   			</div>
+							<div class="form-group" >
+                       			{{ form.contact }}
+                       			{{ form.contact.errors }}
+                   			</div>
+							<div class="form-group" >
+                       			{{ form.address }}
+                       			{{ form.address.errors }}
+                   			</div>
+							<div class="form-group" >
+                       			{{ form.password }}
+                       			{{ form.password.errors }}
+                   			</div>
+							<div class="form-group" >
+                       			{{ form.confirm }}
+
+                       			{{ form.confirm.errors }}
+                   			</div>
+							<div class="col-md-1/10" >
+    		                     <button class="btn my-2 btn-default my-sm-0" id="registerButton" type="submit" > Signup </button>
+							</div>
+						</form>
+					</div><!--/sign up form-->
+				</div>
+			</div>
+		</div>
+	</section><!--/form-->
+	
+{% endblock content%}

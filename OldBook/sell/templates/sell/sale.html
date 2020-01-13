@@ -1,0 +1,55 @@
+{% extends "home/base.html" %}
+{% block menu %}
+<section id="slider">
+	<!--slider-->
+	<div class="container">
+		{% include 'messages.html' %}
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="slider-carousel" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+						<div class="item active">
+							<div class="col-sm-6">
+								<div class="row">
+                                <div class="contact-form">
+                                    <h2 class="title text-center">Enter Book Details</h2>
+                                    <div class="status alert alert-success" style="display: none"></div>
+                                    <form id="main-contact-form" class="contact-form row" name="contact-form" method="Post"
+                                          action="{% url 'sale-url' %}" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="form-group col-md-12" >
+                       			            {{ form.title }}
+                       			            {{ form.title.errors }}
+                   			            </div>
+                                        <div class="form-group col-md-12" >
+                       			            {{ form.price }}
+                       			            {{ form.price.errors }}
+                   			            </div>
+                                        <div class="form-group col-md-12" >
+                       			            {{ form.writer }}
+                       			            {{ form.writer.errors }}
+                   			            </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="file" name="myfile" class="btn btn-default">
+                                        </div>
+                                        <div class="col-md-1/10" >
+    		                                <button class="btn my-2 btn-default my-sm-0" id="sellOk" type="submit" > Upload </button>
+							            </div>
+                                    </form>
+                                </div>
+							</div>
+							<div class="col-sm-6">
+								{% if uploaded_file_url %}
+                                    <img src={{uploaded_file_url}} class="girl img-responsive" alt="" />
+                                {% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+                </div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--/slider-->
+{% endblock menu %}

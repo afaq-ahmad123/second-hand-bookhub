@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<body>
+    <header id="header">
+        <!--header-->
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 clearfix">
+                        <div class="logo pull-left">
+                            <a href="index.html"><img src="/media/images/home/logo.png" alt="" width="150" height="100" /></a>
+                        </div>
+
+                    </div>
+                    <div class="col-md-8 clearfix">
+                        <div class="shop-menu clearfix pull-right">
+                            <ul class="nav navbar-nav">
+                                <li><a href="profile.html"><i class="fa fa-user"></i> Account</a></li>
+                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+<div class="container">
+	<div class="row login_box">
+	    <div class="col-xs-12 col-sm-4 text-center">
+                        <figure class="text-center">
+                            <img src="/media/images/profile/me.jpg" alt="" class="img-circle img-responsive">
+                            <figcaption class="ratings">
+                                <p>Ratings
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star-o"></span>
+                                    </a>
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+        <div class="col-xs-12 divider text-center">
+                    <div class="col-xs-12 col-sm-4 emphasis">
+                        <h2><strong> 20 </strong></h2>
+                        <p><small>Active</small></p>
+                        <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Active Ads
+                        </button>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 emphasis">
+                        <h2><strong>15</strong></h2>
+                        <p><small>Sold</small></p>
+                        <button class="btn btn-info btn-block"><span class="fa fa-gear"></span> Books Sold </button>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 emphasis">
+                        <h2><strong>43</strong></h2>
+                        <p><small>Reviews</small></p>
+                        <button class="btn btn-primary btn-block"><span class="fa fa-user"></span> People Viewed
+                        </button>
+                    </div>
+        </div>
+         <br/>
+            <form method="Post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label><h5>First Name:</h5></label>
+                {{ form.firstName }}
+                {{ form.firstName.errors }}
+                <br/>
+                <br/>
+                <label><h5>Last Name:</h5></label>
+                {{ form.lastName }}
+                {{ form.lastName.errors }}
+                <br/>
+                <br/>
+
+                <label><h5>Profile Picture:</h5></label><br/>
+                {{ form.profilePicture }}
+                <br/>
+                <input type="submit" class="btn btn-primary pull-right" value="Save">
+            </form>
+    </div>
+</div>
+</div>
+</body>
+        {% endblock content %}

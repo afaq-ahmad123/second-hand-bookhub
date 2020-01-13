@@ -1,0 +1,93 @@
+{% extends "home/base.html" %}
+{% load static %}
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/detail.js'%}"></script>
+{% block menu %}
+<section id="slider">
+	<!--slider-->
+	<div class="container" onload="showBid()">
+		{% include 'messages.html' %}
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="slider-carousel" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+						<div class="item active">
+							<div class="col-sm-6">
+								<h2><span>Title: </span>{{ book.book_name }}</h2>
+								<h2><span>Price: </span>{{ book.book_price }}</h2>
+								<h2><span>Details: </span>This is Computer Science Book which i want to sale it so that
+									ther people can use it.</h2>
+								<h2><span>Seller ID: </span>123456789</h2>
+								<h2><span>Seller Address: </span>FAST NUCES LAHORE</h2>
+								<!--<button type="button" class="btn btn-default get">Buy now</button>
+								<a href="chatroom.html"><button type="button" class="btn btn-default get">Get it
+										Free</button></a>
+								<a href="chatroom.html"><button type="button"
+										class="btn btn-default get">Exchange</button></a>-->
+							</div>
+							<div class="col-sm-6">
+								<img src={{book.book_img}} class="girl img-responsive" alt="" style="height: 380px;"/>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 padding-right">
+				<div class="category-tab shop-details-tab"><!--category-tab-->
+						<div class="col-sm-12">
+							<ul class="nav nav-tabs">
+								<li class="active" id="bid_tab"><a href="#bid" data-toggle="tab" onclick="showBid()">Bid</a></li>
+								<li id="exchange_tab"><a href="#exchange" data-toggle="tab" onclick="showBid()">Exchange</a></li>
+								<li id="request_tab"><a href="#request" data-toggle="tab" onclick="showBid()">Request For Free</a></li>
+								<li id="review_tab"><a href="#reviews" data-toggle="tab" onclick="showBid()">Reviews (5)</a></li>
+							</ul>
+						</div>
+
+						<div class="tab-pane fade active in" id="reviews" >
+							<div class="col-sm-12">
+								<ul>
+									<li><a href=""><i class="fa fa-user"></i>{{ user.name }}</a></li>
+									<li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
+									<li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+								</ul>
+								<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+								<p><b>Write Your Review</b></p>-->
+
+								<form id="review" action="#" method="POST" style="">
+									{% csrf_token %}
+									<span>
+										<input type="text" placeholder="Your Name"/>
+										<input type="email" placeholder="Email Address"/>
+									</span>
+									<textarea name="" ></textarea>
+									<b>Rating: </b> <img src="/media/images/product-details/rating.png" alt="" />
+									<button type="button" class="btn btn-default pull-right">
+										Submit
+									</button>
+								</form>
+								<form id="bid" action="#" method="POST" style="">
+									{% csrf_token %}
+									<span>
+										<input type="text" placeholder="Your Name"/><br>
+										<input type="email" placeholder="Email Address"/>
+										<input type="number" placeholder="Price ($USD)"/>
+									</span>
+									<textarea name="" ></textarea>
+									<b>Rating: </b> <img src="/media/images/product-details/rating.png" alt="" />
+									<button type="button" class="btn btn-default pull-right">
+										Submit
+									</button>
+								</form>
+							</div>
+						</div>
+
+						</div>
+				</div>
+			</div>
+	</div>
+</section>
+<!--/slider-->
+{% endblock menu %}

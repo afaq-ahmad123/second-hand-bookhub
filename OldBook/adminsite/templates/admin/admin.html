@@ -1,0 +1,378 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admin | E-BookStore</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}"  rel="stylesheet">
+    <link href="{% static 'css/prettyPhoto.css' %}" rel="stylesheet">
+    <link href="{% static 'css/price-range.css' %}" rel="stylesheet">
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+	<link href="{% static 'css/main.css'%}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/responsive.css'%}" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="{% static 'js/html5shiv.js' %}"></script>
+    <script src="{% static 'js/respond.min.js' %}"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="/media/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/media/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/media/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/media/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/media/images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+	<header id="header"><!--header-->
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 clearfix">
+						<div class="logo pull-left">
+							<a href="index.html"><img src="/media/images/home/logo.png" alt="" width="150" height="100" /></a>
+						</div>
+
+					</div>
+					<div class="col-md-8 clearfix">
+						<div class="shop-menu clearfix pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="profile.html"><i class="fa fa-user"></i> Account</a></li>
+								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-middle-->	
+		<div class="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><a href="/home/">Home</a></li>
+								<li><a href="sale.html">Sell Book</a></li>
+								<li><a href="exchange.html">Exchange Book</a></li>
+								<li><a href="product-details.html">Buy a Book</a></li>
+								<li><a href="cart.html">View User Ads</a></li>
+								<li><a href="contact-us.html">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+						<div class="col-sm-10">
+							<div class=" search_type ">
+							<select name="City">
+								<option value="book">Search Book</option>
+								<option value="user">Search user</option>
+							</select>
+							<select name="Search By">
+								<option value="Book Title">Book Title</option>
+								<option value="Author Name">Author Name</option>
+                                <option value="uname">User Name</option>
+                                <option value="uid">User Id</option>
+							</select>
+							<div class="search_box pull-right">
+								<input type="text" placeholder="Search"/>
+							</div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div><!--/header-bottom-->
+	</header><!--/header-->
+
+	<section id="cart_items">
+		<div class="container">
+			<div class="breadcrumbs">
+				<ol class="breadcrumb">
+				  <li><a href="#">Home</a></li>
+				  <li class="active">Admin</li>
+				</ol>
+            </div>
+            <h2 class="title text-center">Users</h2>
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="image">User</td>
+							<td class="description">Info</td>
+							<td class="price">Books Sold</td>
+							<td class="price">Featured</td>
+							<td class="quantity">Warning</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="cart_product">
+								<a href=""><img src="/media/images/profile/me.jpg" width= "100" height="100" alt=""></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">Jai White</a></h4>
+								<p>Web ID: 1089772</p>
+							</td>
+							<td class="cart_price">
+								<p>No</p>
+							</td>
+							<td class="cart_price">
+                                <button class="btn btn-primary">Featured</button>
+							</td>
+							<td class="cart_delete">
+								<button class="btn btn-danger">Warning</button>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="cart_product">
+								<a href=""><img src="/media/images/profile/prof2.jpg" width= "100" height="100" alt=""></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">John Nicolson</a></h4>
+								<p>Web ID: 1089772</p>
+							</td>
+							<td class="cart_price">
+								<p>5</p>
+							</td>
+							<td class="cart_price">
+                                    <button class="btn btn-primary">Featured</button>
+                                </td>
+                                <td class="cart_delete">
+                                    <button class="btn btn-danger">Warning</button>
+                                </td>
+						</tr>
+						<tr>
+							<td class="cart_product">
+								<a href=""><img src="/media/images/profile/prof3.jpg" width= "100" height="100" alt=""></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">Michael Winston</a></h4>
+								<p>Web ID: 1089772</p>
+							</td>
+							<td class="cart_price">
+								<p>4</p>
+							</td>
+							<td class="cart_price">
+                                    <button class="btn btn-primary">Featured</button>
+                                </td>
+                                <td class="cart_delete">
+                                    <button class="btn btn-danger">Warning</button>
+                                </td>
+							
+						</tr>
+					</tbody>
+				</table>
+            </div>
+            <h2 class="title text-center">Book</h2>
+            <div class="table-responsive cart_info">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="cart_menu">
+                                <td class="image">Book</td>
+                                <td class="description">Description</td>
+                                <td class="price">Price</td>
+                                <td class="price">Purpose</td>
+                                <td class="quantity">Delete Book</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="cart_product">
+                                    <a href=""><img src="/media/images/home/book1.jpg" width= "100" height="100" alt=""></a>
+                                </td>
+                                <td class="cart_description">
+                                    <h4><a href="">Computer Science C++</a></h4>
+                                    <p>Web ID: 1089772</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>No</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>Exchange</p>
+                                </td>
+                                <td class="cart_delete">
+                                    <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                </td>
+                            </tr>
+    
+                            <tr>
+                                <td class="cart_product">
+                                    <a href=""><img src="/media/images/home/book2.jfif" width= "100" height="100" alt=""></a>
+                                </td>
+                                <td class="cart_description">
+                                    <h4><a href="">Dreyer's English</a></h4>
+                                    <p>Web ID: 1089772</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>$59</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>Sale</p>
+                                </td>
+                                <td class="cart_delete">
+                                    <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cart_product">
+                                    <a href=""><img src="/media/images/home/book3.jpg" width= "100" height="100" alt=""></a>
+                                </td>
+                                <td class="cart_description">
+                                    <h4><a href="">Integral Calculus</a></h4>
+                                    <p>Web ID: 1089772</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>$59</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>Exchange</p>
+                                </td>
+                                <td class="cart_delete">
+                                    <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+		</div>
+	</section> <!--/#cart_items-->
+
+	<!--<section id="do_action">
+		<div class="container">
+			<div class="heading">
+				<h3>Add another book.....</h3>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="chose_area">
+						<ul class="user_option">
+							
+								<input id="bname" type="text" placeholder="Book Name">
+							
+								<input id="bdetails" type="text" placeholder="Book Details">
+							
+								<input id="price" type="text" placeholder="Price">
+								
+								<input type="file" class="custom-file-input" id="fileupload" aria-describedby="inputGroupFileAddon01">
+								<label id="custom-file-label"  for="inputGroupFile01">Choose Image</label>
+
+						</ul>
+						<a class="btn btn-default check_out" href="">Add</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>/#do_action-->
+
+
+
+	<footer id="footer"><!--Footer-->
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="companyinfo">
+							<h2><span>e</span>-BookStore</h2>
+							<p>A Platform to Sell, Buy and Exchange Your used Books on Discounts</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-widget">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Service</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Online Help</a></li>
+								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">Order Status</a></li>
+								<li><a href="#">Change Location</a></li>
+								<li><a href="#">FAQ’s</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Quick Books</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Math Books</a></li>
+								<li><a href="#">Arts</a></li>
+								<li><a href="#">Law</a></li>
+								<li><a href="#">General Studies</a></li>
+								<li><a href="#">Medical</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Policies</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Terms of Use</a></li>
+								<li><a href="#">Privecy Policy</a></li>
+								<li><a href="#">Refund Policy</a></li>
+								<li><a href="#">Billing System</a></li>
+								<li><a href="#">Exchange System</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>About BookStore</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Company Information</a></li>
+								<li><a href="#">Other Associated Platform</a></li>
+								<li><a href="#">Store Location</a></li>
+								<li><a href="#">Copyright</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3 col-sm-offset-1">
+						<div class="single-widget">
+							<h2>About BookStore</h2>
+							<form action="#" class="searchform">
+								<input type="text" placeholder="Your email address" />
+								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+								<p>Get the most recent updates from <br />our site and be updated your self...</p>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<p class="pull-left">Copyright © 2013 E-Books Inc. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+		
+	</footer><!--/Footer-->
+	
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

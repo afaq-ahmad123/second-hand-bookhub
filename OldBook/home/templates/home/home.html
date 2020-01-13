@@ -1,0 +1,475 @@
+{% extends "home/base.html" %}
+{% block menu %}
+<section id="slider"><!--slider-->
+		<div class="container">
+			<div class="row">
+					<div class="col-sm-3">
+							<div class="left-sidebar">
+								<h2>Category</h2>
+								<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+													<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+													Medical
+												</a>
+											</h4>
+										</div>
+										<!--<div id="sportswear" class="panel-collapse collapse">
+											<div class="panel-body">
+												<ul>
+													<li><a href="">Nike </a></li>
+													<li><a href="">Under Armour </a></li>
+													<li><a href="">Adidas </a></li>
+													<li><a href="">Puma</a></li>
+													<li><a href="">ASICS </a></li>
+												</ul>
+											</div>
+										</div>-->
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a data-toggle="collapse" data-parent="#accordian" href="#mens">
+													<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+													Engineering
+												</a>
+											</h4>
+										</div>
+									</div>
+
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a data-toggle="collapse" data-parent="#accordian" href="#womens">
+													<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+													Law
+												</a>
+											</h4>
+										</div>
+										<!--<div id="womens" class="panel-collapse collapse">
+											<div class="panel-body">
+												<ul>
+													<li><a href="">Fendi</a></li>
+													<li><a href="">Guess</a></li>
+													<li><a href="">Valentino</a></li>
+													<li><a href="">Dior</a></li>
+													<li><a href="">Versace</a></li>
+												</ul>
+											</div>
+										</div>-->
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title"><a href="#">Computer Science</a></h4>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+				<div class="col-sm-9">
+					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+							<li data-target="#slider-carousel" data-slide-to="1"></li>
+							<li data-target="#slider-carousel" data-slide-to="2"></li>
+						</ol>
+
+						<div class="carousel-inner">
+							<div class="item active">
+								<div class="col-sm-6">
+									<h1><span>Bright Side</span>Bookshop</h1>
+									<h2>This Website is for used books</h2>
+									<p>You can buy the books at affordable prices. </p>
+									<button type="button" class="btn btn-default get">Get it now</button>
+								</div>
+								<div class="col-sm-6">
+									<a href="{% url 'detail' book=0 %}" methods="POST">
+									<img src="/media/images/home/book1.png" class="girl img-responsive" alt=""
+									style="height: 380px"/>
+									</a>
+								</div>
+							</div>
+							<div class="item">
+								<div class="col-sm-6">
+									<h1><span>Bright Side</span>Bookshop</h1>
+									<p>You can sell the books. </p>
+									<button type="button" class="btn btn-default get">Get it now</button>
+								</div>
+								<div class="col-sm-6">
+									<img src="/media/images/home/book2.jfif" class="girl img-responsive" alt=""
+									style="height: 380px"/>
+
+								</div>
+							</div>
+
+							<div class="item">
+								<div class="col-sm-6">
+									<h1><span>Bright Side</span>Bookshop</h1>
+									<p>You can exchange the books. And you can give the books free of cost to people who need them. </p>
+									<button type="button" class="btn btn-default get">Get it now</button>
+								</div>
+								<div class="col-sm-6">
+									<img src="/media/images/home/book3.jpg" class="girl img-responsive" alt=""
+									style="height: 380px" />
+
+								</div>
+							</div>
+
+						</div>
+
+						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+							<i class="fa fa-angle-left"></i>
+						</a>
+						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+							<i class="fa fa-angle-right"></i>
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section><!--/slider-->
+
+	<section>
+        <div class="container">
+		<div class="col-sm-11">
+			<div class="features_items">
+				<!--features_items-->
+				<h2 class="title text-center">Features Items</h2>
+				{% for feature in features %}
+				<div class="col-sm-4 card">
+					<div class="product-image-wrapper">
+							<div class="single-products">
+								<img src={{ feature.seller_pic }}  class="img-circle"
+								 style="width:30%; height:60px;"/>
+								{% if feature.featured %}
+								 <a href="#" class="badge badge-warning pull-right">Featured</a>
+								{% endif %}
+								<div class="cart_description">
+								 <h4><a href="">{{ feature.seller }} </a></h4>
+								<!--<p>Web ID: {{ feature.seller_id }}</p>-->
+								<figcaption class="ratings">
+									<p>
+										{% for x in feature.rating %}
+										{% if x %}
+											<a href="#"><span class="fa fa-star"></span></a>
+										{% else %}
+											<a href="#"><span class="fa fa-star-o"></span></a>
+										{% endif %}
+										{% endfor %}
+									</p>
+								</figcaption>
+								</div>
+							<div class="productinfo text-center">
+								<a href="{% url 'detail' book=forloop.counter %}" methods="POST">
+								<img src={{ feature.book_img }} alt="" style="height: 380px"/>
+								</a>
+								<h2>{{ feature.book_price }}</h2>
+								<!--price-->
+								<p>{{ feature.book_name }}</p>
+								<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
+									cart</a>
+							</div>
+							<!--<div class="product-overlay">
+								<div class="overlay-content">
+									<h2>$56</h2>
+									<p>Computer Science with C++</p>
+									<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
+										to cart</a>
+								</div>
+							</div>-->
+						</div>
+						<div class="choose card-footer">
+							<ul class="nav nav-pills nav-justified">
+								<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+								<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				<div class="col-sm-4">
+					<div class="product-image-wrapper">
+						<div class="single-products">
+								<img src="/media/images/profile/prof2.jpg"  class="img-circle"
+								style="width:30%; height:60px;"/>
+							   <div class="cart_description">
+								<h4><a href="">Michael Winston</a></h4>
+							   <p>Web ID: 1089772</p>
+							   <figcaption class="ratings">
+								   <p>
+									   <a href="#"><span class="fa fa-star"></span></a>
+									   <a href="#"><span class="fa fa-star"></span></a>
+									   <a href="#"><span class="fa fa-star"></span></a>
+									   <a href="#"><span class="fa fa-star"></span></a>
+									   <a href="#"><span class="fa fa-star-o"></span></a>
+								   </p>
+							   </figcaption>
+							   </div>
+							<div class="productinfo text-center">
+								<img src="/media/images/home/book2.jpg" alt="" style="height: 380px"/>
+								<h2>$56</h2>
+								<p>Weigh The Wind By DIANNA</p>
+								<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
+									cart</a>
+							</div>
+							<div class="product-overlay">
+								<div class="overlay-content">
+									<h2>$56</h2>
+									<p>Weigh The Wind By DIANNA</p>
+									<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
+										to cart</a>
+								</div>
+							</div>
+						</div>
+						<div class="choose">
+							<ul class="nav nav-pills nav-justified">
+								<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+								<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="product-image-wrapper">
+						<div class="single-products">
+								<img src="/media/images/profile/prof3.jpg"  class="img-circle"
+								style="width:30%; height:60px;"/>
+								<a href="#" class="badge badge-warning pull-right">Featured</a>
+							   <div class="cart_description">
+								<h4><a href="">Michael Winston</a></h4>
+							   <p>Web ID: 1089772</p>
+							   <figcaption class="ratings">
+								   <p>
+									   <a href="#"><span class="fa fa-star"></span></a>
+									   <a href="#"><span class="fa fa-star"></span></a>
+									   <a href="#"><span class="fa fa-star"></span></a>
+									   <a href="#"><span class="fa fa-star"></span></a>
+									   <a href="#"><span class="fa fa-star-o"></span></a>
+								   </p>
+							   </figcaption>
+							   </div>
+							<div class="productinfo text-center">
+								<img src="/media/images/home/book3.jpg" alt="" style="height: 380px" />
+								<h2>$56</h2>
+								<p>Integral Calculus By Gorakh Prasad</p>
+								<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
+									cart</a>
+							</div>
+							<div class="product-overlay">
+								<div class="overlay-content">
+									<h2>$56</h2>
+									<p>Integral Calculus By Gorakh Prasad</p>
+									<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
+										to cart</a>
+								</div>
+							</div>
+						</div>
+						<div class="choose">
+							<ul class="nav nav-pills nav-justified">
+								<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+								<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="product-image-wrapper">
+						<div class="single-products">
+							<div class="productinfo text-center">
+								<img src="/media/images/home/book4.jpg" alt="" style="height: 380px;"/>
+								<h2>$56</h2>
+								<p>Honor & Respect By Robert Hickey</p>
+								<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
+									cart</a>
+							</div>
+							<div class="product-overlay">
+								<div class="overlay-content">
+									<h2>$56</h2>
+									<p>Honor & Respect By Robert Hickey</p>
+									<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
+										to cart</a>
+								</div>
+							</div>
+							<img src="/media/images/home/new.png" class="new" alt="" />
+						</div>
+						<div class="choose">
+							<ul class="nav nav-pills nav-justified">
+								<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+								<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="product-image-wrapper">
+						<div class="single-products">
+							<div class="productinfo text-center">
+								<img src="/media/images/home/book5.jpg" alt="" style="height: 380px;"/>
+								<h2>$56</h2>
+								<p>Find Your Joy Zone By anne nelson</p>
+								<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
+									cart</a>
+							</div>
+							<div class="product-overlay">
+								<div class="overlay-content">
+									<h2>$56</h2>
+									<p>Find Your Joy Zone By anne nelson</p>
+									<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
+										to cart</a>
+								</div>
+							</div>
+							<img src="home/template/home/sale.png" class="new" alt="" />
+						</div>
+						<div class="choose">
+							<ul class="nav nav-pills nav-justified">
+								<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+								<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="product-image-wrapper">
+						<div class="single-products">
+							<div class="productinfo text-center">
+								<img src="/media/images/home/book6.jpg" alt="" style="height: 380px;"/>
+								<h2>$56</h2>
+								<p>Moby Dick or The Whale By Herman Melville</p>
+								<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
+									cart</a>
+							</div>
+							<div class="product-overlay">
+								<div class="overlay-content">
+									<h2>$56</h2>
+									<p>Moby Dick or The Whale By Herman Melville</p>
+									<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
+										to cart</a>
+								</div>
+							</div>
+						</div>
+						<div class="choose">
+							<ul class="nav nav-pills nav-justified">
+								<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+								<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!--features_items-->
+
+			<div class="recommended_items">
+				<!--recommended_items-->
+				<h2 class="title text-center">recommended items</h2>
+
+				<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+						<div class="item active">
+							<div class="col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="/media/images/home/book7.jpg" alt="" />
+											<h2>$56</h2>
+											<p>Victoria Hislop</p>
+											<a href="#" class="btn btn-default add-to-cart"><i
+													class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="/media/images/home/book8.jpg" alt="" />
+											<h2>$56</h2>
+											<p>Little Fires Everywhere By Celeste Ng</p>
+											<a href="#" class="btn btn-default add-to-cart"><i
+													class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="/media/images/home/book9.jpg" alt="" />
+											<h2>$56</h2>
+											<p>Killer Miracle By Laura F.Sanchez</p>
+											<a href="#" class="btn btn-default add-to-cart"><i
+													class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="/media/images/home/book10.jpg" alt="" />
+											<h2>$56</h2>
+											<p>Agent Running in the Field</p>
+											<a href="#" class="btn btn-default add-to-cart"><i
+													class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="/media/images/home/book11.jpg" alt="" />
+											<h2>$56</h2>
+											<p>The Book of Books By Tony Jeary</p>
+											<a href="#" class="btn btn-default add-to-cart"><i
+													class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="/media/images/home/book12.jpg" alt="" />
+											<h2>$56</h2>
+											<p>Gone With the Wind by Margeret Mitchell</p>
+											<a href="#" class="btn btn-default add-to-cart"><i
+													class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+						<i class="fa fa-angle-left"></i>
+					</a>
+					<a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+						<i class="fa fa-angle-right"></i>
+					</a>
+				</div>
+			</div>
+			<!--/recommended_items-->
+		</div>
+		</div>
+		</div>
+        </div>
+	</section>
+{% endblock menu %}
